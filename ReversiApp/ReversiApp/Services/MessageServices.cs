@@ -30,6 +30,7 @@ namespace ReversiApp.Services
         {
             var client = new SmtpClient(host, port)
             {
+                UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(userName, password),
                 EnableSsl = enableSSL,
                 DeliveryMethod = SmtpDeliveryMethod.Network
