@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\svene\\source\\repos\\ReversiApp\\ReversiApp\\ReversiApp.csproj": {}
+    "C:\\Users\\svene\\Desktop\\Rversi\\Reversi\\ReversiApp\\ReversiApp\\ReversiApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\svene\\source\\repos\\ReversiApp\\ReversiApp\\ReversiApp.csproj": {
+    "C:\\Users\\svene\\Desktop\\Rversi\\Reversi\\ReversiApp\\ReversiApp\\ReversiApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\svene\\source\\repos\\ReversiApp\\ReversiApp\\ReversiApp.csproj",
+        "projectUniqueName": "C:\\Users\\svene\\Desktop\\Rversi\\Reversi\\ReversiApp\\ReversiApp\\ReversiApp.csproj",
         "projectName": "ReversiApp",
-        "projectPath": "C:\\Users\\svene\\source\\repos\\ReversiApp\\ReversiApp\\ReversiApp.csproj",
+        "projectPath": "C:\\Users\\svene\\Desktop\\Rversi\\Reversi\\ReversiApp\\ReversiApp\\ReversiApp.csproj",
         "packagesPath": "C:\\Users\\svene\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\svene\\source\\repos\\ReversiApp\\ReversiApp\\obj\\",
+        "outputPath": "C:\\Users\\svene\\Desktop\\Rversi\\Reversi\\ReversiApp\\ReversiApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
