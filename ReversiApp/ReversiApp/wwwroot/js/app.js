@@ -35,7 +35,7 @@ Game.Reversi = (function (){
         if(configMap.kleurAanDeBeurt === configMap.kleur)
         {
             $.ajax({
-                url: 'https://localhost:44387/api/Reversi/Pas/' + configMap.gameId,
+                url: 'https://svenreversi.hbo-ict.org/api/Reversi/Pas/' + configMap.gameId,
                 type: 'PUT',
                 success: async function () {
                     Game.Model.getGameState().then(data =>
@@ -95,7 +95,7 @@ Game.Reversi = (function (){
         {
 
             $.ajax({
-                url: 'https://localhost:44387/api/Reversi/Zet/' + Game.Model.configMap.gameId + '/' + posy + '/' + posx,
+                url: 'https://svenreversi.hbo-ict.org/api/Reversi/Zet/' + Game.Model.configMap.gameId + '/' + posy + '/' + posx,
                 type: 'PUT',
                 success: async function () {
                     Game.Model.getGameState().then(data =>
@@ -152,7 +152,7 @@ Game.Data = (function ($){
         apiKey: "1287dd0fbc39851a31b3d66be3df19a0",
         mock: [
             {
-                url: "https://localhost:44308/api/Reversi/Beurt/567",
+                url: "https://svenreversi.hbo-ict.org/api/Reversi/Beurt/567",
                 data: 2
             }
         ]
@@ -246,42 +246,42 @@ Game.Model = (function (){
         var last_segment = url_arr[url_arr.length-1];
         configMap.gameId = last_segment;
 
-        return Game.Data.get("https://localhost:44387/api/Reversi/" + last_segment)
+        return Game.Data.get("https://svenreversi.hbo-ict.org/api/Reversi/" + last_segment)
             .then(data => {
                 return data;
             });
     };
 
     const _getUser = function () {
-        return Game.Data.get('https://localhost:44387/api/Reversi/GetUser')
+        return Game.Data.get('https://svenreversi.hbo-ict.org/api/Reversi/GetUser')
             .then(data => {
                 return data;
             });
     };
 
     const _getKleur = function (user, gameId) {
-        return Game.Data.get('https://localhost:44387/api/Reversi/GetKleur/' + user + '/' + gameId)
+        return Game.Data.get('https://svenreversi.hbo-ict.org/api/Reversi/GetKleur/' + user + '/' + gameId)
             .then(data => {
                 return data;
             });
     };
 
     const _getBeurt = function (gameId) {
-        return Game.Data.get('https://localhost:44387/api/Reversi/Beurt/' + gameId)
+        return Game.Data.get('https://svenreversi.hbo-ict.org/api/Reversi/Beurt/' + gameId)
             .then(data =>{
                 return data;
             })
     };
 
     const _getReady = function (gameId) {
-        return Game.Data.get('https://localhost:44387/api/Reversi/Ready/' + gameId)
+        return Game.Data.get('https://svenreversi.hbo-ict.org/api/Reversi/Ready/' + gameId)
             .then(data =>{
                 return data;
             })
     };
 
     const _getStats = function (gameId) {
-        return Game.Data.get('https://localhost:44387/api/Reversi/Stats/' + gameId)
+        return Game.Data.get('https://svenreversi.hbo-ict.org/api/Reversi/Stats/' + gameId)
             .then(data =>{
                 return data;
             })
