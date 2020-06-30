@@ -31,7 +31,8 @@ namespace ReversiApp.Services
             var client = new SmtpClient(host, port)
             {
                 Credentials = new NetworkCredential(userName, password),
-                EnableSsl = enableSSL
+                EnableSsl = enableSSL,
+                DeliveryMethod = SmtpDeliveryMethod.Network
             };
             return client.SendMailAsync(
                 new MailMessage(userName, email, subject, htmlMessage) { IsBodyHtml = true }
