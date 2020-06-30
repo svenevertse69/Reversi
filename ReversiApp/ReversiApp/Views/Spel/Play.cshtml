@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ReversiApp.Models.Spel>
+
+@{
+    ViewData["Title"] = "Play";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<tr>
+    @Html.DisplayNameFor(model => model.Omschrijving):
+    <th>
+        @foreach (var item in Model)
+        {
+            @if (item.SpelID == ViewBag.Message)
+            {
+                @: @item.Omschrijving <br />
+            }
+
+        }
+    </th>
+    Spelers:
+    <th>
+        @foreach (var item in Model)
+        {
+            if (item.SpelID == ViewBag.Message)
+            {
+                @foreach (var speler in item.SpelerSpel)
+                {
+                    @: @speler.Speler.Naam
+                }
+            }
+        }
+    </th>
+</tr>
+<br />
+<a asp-action="Leave" asp-route-id=@ViewBag.Message>Leave </a>
+<br />
+
+@{var counter = 0; }
+
+@foreach (var item in Model)
+{
+
+    if (item.SpelID == ViewBag.Message)
+    {
+        @foreach (var speler in item.SpelerSpel)
+        {
+            counter++;
+        }
+    }
+}
+
+@if (counter < 2)
+{
+    <a asp-action="Edit" asp-route-id=@ViewBag.Message>Edit</a> <br />
+    <a asp-action="SearchGame">Search Games</a>
+}
+
+
+@Html.Partial("~/Views/Shared/_play.cshtml")
+

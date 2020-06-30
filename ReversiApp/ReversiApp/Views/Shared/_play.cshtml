@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript getting started</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="../../js/vendor.js"></script>
+    <script src="../../js/templates.js"></script>
+    <script src="../../js/app.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../../css/style.min.css">
+</head>
+<body>
+    <section id="feedback-success" class="success--fadeIn" role="alert"><figure class="figure"><p><img src="image/checkmark.png" class="success--image">Sven wil deelnemen aan jouw spel. Geef akkoord.</p></figure><section class="submitSection"><form><button type="button" id="SuccessButton" class="button--success">Akkoord</button> <button type="button" id="CancelButton" class="button--cancel">Weigeren</button></form></section><button type="button" id="IgnoreButton" class="button--ignore">X</button></section><section id="feedback-danger" class="alert alert-danger" role="alert"><p>Doet het niet</p><button type="button" id="NextButton">OK</button></section><section id="foxImage">
+    </section>
+    <section class="grid-container" , id="grid">
+        <script>Game.Reversi.init(), Game.Reversi.showFiche()</script>
+    </section>
+    <section id="pas">
+        <button type="button" onclick="Game.Reversi.pas()">Pas</button>
+    </section>
+    <canvas id="myChart" width="500" height="600"></canvas>
+    <script>
+        let feedbackWidget;
+        $(document).ready(function () {
+            console.log("ready!");
+            feedbackWidget = new FeedbackWidget("feedback-success");
+            function afterInit() {
+                console.log("Game Init voltooid");
+            }
+
+            Game.init(afterInit);
+            console.log(Game);
+
+            $("#IgnoreButton").on("click", function () {
+                feedbackWidget.hide();
+            });
+        });</script>
+</body>
+</html>

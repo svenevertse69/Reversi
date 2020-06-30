@@ -1,0 +1,24 @@
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<Speler> UserManager
+@{
+    ViewData["Title"] = "Two factor authentication";
+    Layout = "~/Views/Manage/_ManageLayout.cshtml";
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+@if (user.TwoFactorEnabled)
+{
+    <form method="post">
+        <input type="submit" class="btn btn-primary" asp-controller="TwoFactor" asp-action="ResetAuthenticatorKey" value="Reset token">
+        <input type="submit" class="btn btn-primary" asp-controller="TwoFactor" asp-action="Disable" value="Disable">
+    </form>
+}
+else
+{
+    <form method="get">
+        <input type="submit" class="btn btn-primary" asp-controller="TwoFactor" asp-action="Register" value="Enable">
+    </form>
+}
+

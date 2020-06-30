@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ReversiApp.Models.Spel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Omschrijving)
+            </th>
+            <th>
+                Spelers
+            </th>
+            <th>
+                Manage
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Omschrijving)
+                </td>
+                <td>
+                    @foreach (var speler in item.SpelerSpel)
+                    {
+                        @: @speler.Speler.Naam <br />
+                    }
+                </td>
+                <td>
+                    @{
+
+                        if (item.SpelerSpel.FirstOrDefault().Speler.Naam == User.Identity.Name)
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.SpelID">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.SpelID">Delete</a>
+                        }
+
+                        if (!item.SpelerSpel.Any(s => s.Speler.Naam == User.Identity.Name))
+                        {
+                            <a asp-action="Join" asp-route-id="@item.SpelID">Join</a>
+                        }
+                        else
+                        {
+                            <a asp-action="Play" asp-route-id="@item.SpelID">Play</a>
+                            <a asp-action="Leave" asp-route-id="@item.SpelID">Leave</a>
+                        }
+
+
+                    }
+
+
+
+                    <a asp-action="Details" asp-route-id="@item.SpelID">Details</a>
+
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

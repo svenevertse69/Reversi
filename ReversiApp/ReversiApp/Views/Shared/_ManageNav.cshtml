@@ -1,0 +1,13 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<Speler> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="nav-link" id="profile">Profile</a></li>
+    <li class="nav-item"><a class="nav-link" id="change-password" asp-controller="Manage" asp-action="ChangePassword">Change Password</a></li>
+    @if (hasExternalLogins)
+    {
+        <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link">External logins</a></li>
+    }
+    <li class="nav-item"><a class="nav-link" id="two-factor" asp-controller="TwoFactor" asp-action="Index">Two-factor authentication</a></li>
+</ul>
